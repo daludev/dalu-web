@@ -41,7 +41,7 @@ const ContactSection = () => {
     {
       icon: Mail,
       label: t('contact.info.email'),
-      value: 'hello@developer.com',
+      value: 'contacto@dalu.com.ar',
       href: 'mailto:hello@developer.com'
     },
     {
@@ -53,7 +53,7 @@ const ContactSection = () => {
     {
       icon: MapPin,
       label: t('contact.info.location'),
-      value: 'San Francisco, CA',
+      value: 'Buenos Aires, Argentina',
       href: null
     }
   ];
