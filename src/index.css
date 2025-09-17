@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Portfolio Design System
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Professional Color Palette */
+    --background: 0 0% 98%;
+    --foreground: 215 25% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    /* Deep Navy Primary */
+    --primary: 215 45% 15%;
+    --primary-foreground: 0 0% 98%;
+    --primary-subtle: 215 25% 25%;
+
+    /* Warm Gray Secondary */
+    --secondary: 215 15% 92%;
+    --secondary-foreground: 215 25% 27%;
+
+    /* Sophisticated Muted Tones */
+    --muted: 215 15% 95%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Gold Accent */
+    --accent: 45 85% 58%;
+    --accent-foreground: 215 45% 15%;
+    --accent-subtle: 45 65% 88%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 15% 88%;
+    --input: 215 15% 92%;
+    --ring: 215 45% 15%;
+
+    --radius: 0.75rem;
+
+    /* Professional Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-subtle)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent-subtle)), hsl(var(--accent)));
+
+    /* Professional Shadows */
+    --shadow-elegant: 0 10px 40px -12px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 4px 20px -2px hsl(var(--primary) / 0.08);
+    --shadow-subtle: 0 2px 8px -1px hsl(var(--muted-foreground) / 0.1);
+
+    /* Animation Variables */
+    --transition-elegant: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.2s ease-out;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode Professional Palette */
+    --background: 215 28% 8%;
+    --foreground: 215 20% 92%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 215 20% 92%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 215 20% 92%;
+
+    /* Light Primary in Dark Mode */
+    --primary: 215 20% 92%;
+    --primary-foreground: 215 45% 15%;
+    --primary-subtle: 215 30% 85%;
+
+    /* Dark Secondary */
+    --secondary: 215 25% 16%;
+    --secondary-foreground: 215 20% 92%;
+
+    /* Dark Muted */
+    --muted: 215 25% 14%;
+    --muted-foreground: 215 15% 65%;
+
+    /* Gold Accent remains elegant in dark */
+    --accent: 45 85% 65%;
+    --accent-foreground: 215 25% 12%;
+    --accent-subtle: 45 40% 25%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 215 20% 92%;
+
+    --border: 215 25% 20%;
+    --input: 215 25% 16%;
+    --ring: 215 20% 92%;
+
+    /* Dark Mode Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-subtle)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent-subtle)), hsl(var(--accent)));
+
+    /* Dark Mode Shadows */
+    --shadow-elegant: 0 10px 40px -12px hsl(0 0% 0% / 0.4);
+    --shadow-card: 0 4px 20px -2px hsl(0 0% 0% / 0.3);
+    --shadow-subtle: 0 2px 8px -1px hsl(0 0% 0% / 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Professional Button Variants */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-primary-subtle text-primary-foreground;
+    @apply px-8 py-4 rounded-lg font-medium transition-all duration-300;
+    @apply hover:shadow-elegant hover:-translate-y-0.5 focus:ring-2 focus:ring-primary/30;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground border border-accent/20;
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
+    @apply hover:bg-accent/90 hover:shadow-card hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary bg-transparent;
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
+    @apply hover:bg-primary hover:text-primary-foreground hover:shadow-card;
+  }
+
+  /* Professional Cards */
+  .card-elegant {
+    @apply bg-card border border-border rounded-xl p-6;
+    @apply shadow-card transition-all duration-300;
+    @apply hover:shadow-elegant hover:-translate-y-1;
+  }
+
+  .card-service {
+    @apply bg-gradient-to-br from-card to-muted/30 border border-border rounded-xl p-8;
+    @apply shadow-subtle transition-all duration-300;
+    @apply hover:shadow-card hover:border-accent/30 hover:-translate-y-1;
+  }
+
+  /* Section Spacing */
+  .section-padding {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-responsive {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Professional Animations */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Smooth Scroll Offset for Fixed Header */
+  .scroll-offset {
+    scroll-margin-top: 6rem;
+  }
+}
