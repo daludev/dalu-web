@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ContactSection = () => {
   const { toast } = useToast();

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/context/LanguageContext';
 
 export const useDocumentTitle = () => {
   const { language } = useLanguage();

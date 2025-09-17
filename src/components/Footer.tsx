@@ -1,5 +1,5 @@
 import { Github, Linkedin, Mail, Heart } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Footer = () => {
   const { t } = useLanguage();

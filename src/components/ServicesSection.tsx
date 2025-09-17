@@ -1,5 +1,5 @@
 import { Globe, Smartphone, Database, Zap, Shield, Headphones } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/context/LanguageContext';
 
 const ServicesSection = () => {
   const { t, tArray } = useLanguage();

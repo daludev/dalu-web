@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Download, Sun, Moon, Globe } from 'lucide-react';
-import { useTheme } from '@/contexts/ThemeContext';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useTheme } from '@/context/ThemeContext';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Navigation = () => {
   const { theme, toggleTheme } = useTheme();

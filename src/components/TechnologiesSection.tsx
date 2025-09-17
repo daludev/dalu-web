@@ -1,5 +1,5 @@
 import { Code2, Database, Server, Zap } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/context/LanguageContext';
 
 const TechnologiesSection = () => {
   const { t, tArray } = useLanguage();
