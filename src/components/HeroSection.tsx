@@ -1,6 +1,6 @@
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-import profileImage from '@/assets/professional-headshot.jpg';
+import profileImage from '@/assets/concepto-de-control-de-calidad-estandar-m.jpg';
 
 const HeroSection = () => {
   const { t } = useLanguage();
