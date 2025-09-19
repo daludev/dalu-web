@@ -7,8 +7,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/daludev', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Mail, href: '#', label: 'Email' }
+    { icon: Mail, href: 'mailto:contacto@dalu.com.ar', label: 'Email' }
   ];
 
   return (
@@ -18,7 +17,7 @@ const Footer = () => {
           <div className="grid md:grid-cols-3 gap-8 items-center">
             {/* Logo & Description */}
             <div className="space-y-4">
-              <h3 className="font-display text-2xl font-bold">Portfolio</h3>
+              <h3 className="font-display text-2xl font-bold">DALU</h3>
               <p className="text-primary-foreground/80 text-sm leading-relaxed">
                 {t('footer.description')}
               </p>

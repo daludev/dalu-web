@@ -42,13 +42,7 @@ const ContactSection = () => {
       icon: Mail,
       label: t('contact.info.email'),
       value: 'contacto@dalu.com.ar',
-      href: 'mailto:hello@developer.com'
-    },
-    {
-      icon: Phone,
-      label: t('contact.info.phone'),
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567'
+      href: 'mailto:contacto@dalu.com.ar'
     },
     {
       icon: MapPin,

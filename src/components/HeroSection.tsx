@@ -43,22 +43,16 @@ const HeroSection = () => {
 
             {/* Social Links */}
             <div className="flex items-center gap-6 pt-4">
+              
               <a 
-                href="#" 
-                className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                aria-label="LinkedIn Profile"
-              >
-                <Linkedin size={24} />
-              </a>
-              <a 
-                href="#" 
+                href="https://github.com/daludev" 
                 className="text-muted-foreground hover:text-primary transition-colors duration-200"
                 aria-label="GitHub Profile"
               >
                 <Github size={24} />
               </a>
               <a 
-                href="#" 
+                href="mailto:contacto@dalu.com.ar" 
                 className="text-muted-foreground hover:text-primary transition-colors duration-200"
                 aria-label="Email Contact"
               >

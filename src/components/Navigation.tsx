@@ -41,7 +41,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20 px-4">
           {/* Logo */}
           <div className="font-display text-2xl font-bold text-primary">
-            Portfolio
+            DALU
           </div>
 
           {/* Desktop Navigation */}
