@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/context/LanguageContext';
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -26,15 +27,52 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('Faltan variables de entorno de EmailJS.');
+      }
+
+      // Inicializar EmailJS en tiempo de envío (idempotente)
+      try {
+        // Compatibilidad con diferentes versiones de la SDK
+        // Algunos tipos varían entre versiones: ambas llamadas son válidas en runtime
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        emailjs.init({ publicKey });
+      } catch {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        emailjs.init(publicKey as unknown as string);
+      }
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company || '-',
+        message: formData.message,
+        to_email: 'contacto@dalu.com.ar',
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams);
+
       toast({
         title: t('contact.success.title'),
         description: t('contact.success.description'),
       });
       setFormData({ name: '', email: '', company: '', message: '' });
-    }, 2000);
+    } catch (error) {
+      console.error('Error enviando contacto:', error);
+      toast({
+        title: t('contact.error.title') ?? 'Error al enviar',
+        description: t('contact.error.description') ?? 'No se pudo enviar el mensaje. Intenta nuevamente.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [

@@ -60,6 +60,37 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+## Configuración de EmailJS para el formulario de contacto
+
+Para que el formulario de `ContactSection` envíe correos a `contacto@dalu.com.ar`, sigue estos pasos:
+
+1) Crear cuenta en EmailJS y un servicio
+- Crea una cuenta en `https://www.emailjs.com/`
+- En el panel, crea un Email Service conectado a tu proveedor (por ejemplo, Gmail/SMTP)
+
+2) Crear plantilla (template)
+- Crea un template con variables: `from_name`, `from_email`, `company`, `message`, `to_email`
+- En el contenido del email, usa esas variables para construir el cuerpo
+  (por ejemplo: Nombre: {{from_name}} | Email: {{from_email}} | Empresa: {{company}} | Mensaje: {{message}})
+- Configura el destinatario con `{{to_email}}` o fija `contacto@dalu.com.ar` directamente en la plantilla
+
+3) Variables de entorno
+- Crea un archivo `.env` en la raíz del proyecto con:
+
+```
+VITE_EMAILJS_SERVICE_ID=tu_service_id
+VITE_EMAILJS_TEMPLATE_ID=tu_template_id
+VITE_EMAILJS_PUBLIC_KEY=tu_public_key
+```
+
+4) Desarrollo
+- Reinicia el servidor si ya estaba corriendo: `npm run dev`
+- Completa el formulario y envía; deberías recibir el correo en `contacto@dalu.com.ar`
+
+Notas
+- No subas `.env` al repositorio
+- Si usas otra plantilla, asegúrate de que los nombres de variables coincidan con los enviados desde el frontend
+
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/ee1203e4-4fb5-4bd0-afc9-5ba71e3a0a1a) and click on Share -> Publish.
